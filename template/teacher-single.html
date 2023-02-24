@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% block content %}
+  <main id="main">
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">{{ active_teacher.name }}</h1>
+              <span class="color-text-a">{{ active_teacher.experience }}</span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="#">Teacher</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  {{ active_teacher.name }}
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro Single -->
+
+    <!-- ======= Agent Single ======= -->
+    <section class="agent-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="agent-avatar-box">
+                  <img src="/media/{{ active_teacher.logo }}" alt="" class="agent-avatar img-fluid">
+                </div>
+              </div>
+              <div class="col-md-5 section-md-t3">
+                <div class="agent-info-box">
+                  <div class="agent-title">
+                    <div class="title-box-d">
+                      <h3 class="title-d">{{ active_teacher.name }}
+                      </h3>
+                    </div>
+                  </div>
+                  <div class="agent-content mb-3">
+                    <p class="content-d color-text-a">{{ active_teacher.desc }}</p>
+                    <div class="info-agents color-a">
+                      <p>
+                        <strong>Phone: </strong>
+                        <span class="color-text-a"> {{ active_teacher.phone }} </span>
+                      </p>
+                      <p>
+                        <strong>skype: </strong>
+                        <span class="color-text-a"> {{ active_teacher.skype }}</span>
+                      </p>
+                      <p>
+                        <strong>Email: </strong>
+                        <span class="color-text-a"> {{ active_teacher.email }}</span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="socials-footer">
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <a href="http://www.facebook.com/{{ active_teacher.facebook }}/" class="link-one">
+                          <i class="bi bi-facebook" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="https://twitter.com/{{ active_teacher.twitter }}" class="link-one">
+                          <i class="bi bi-twitter" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="https://www.instagram.com/{{ active_teacher.instagram }}/" class="link-one">
+                          <i class="bi bi-instagram" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="https://www.linkedin.com/in/{{ active_teacher.linkedin }}/" class="link-one">
+                          <i class="bi bi-linkedin" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 section-t8">
+            <div class="title-box-d">
+              <h3 class="title-d">My lessons ({{ len_course }})</h3>
+            </div>
+          </div>
+          <div class="row property-grid grid">
+            {% for cor in courses %}
+              <div class="col-md-4">
+              <div class="card-box-a card-shadow">
+                <div class="img-box-a">
+                  <img src="/media/{{ cor.logo1 }}/" alt="" class="img-a img-fluid">
+                </div>
+                <div class="card-overlay">
+                  <div class="card-overlay-a-content">
+                    <div class="card-header-a">
+                      <h2 class="card-title-a">
+                        <a href="#">{{ cor.name }}</a>
+                      </h2>
+                    </div>
+                    <div class="card-body-a">
+                      <div class="price-box d-flex">
+                        <span class="price-a">{{ cor.type_course.name }}</span>
+                      </div>
+                      <a href="#" class="link-a">Click here to view
+                        <span class="bi bi-chevron-right"></span>
+                      </a>
+                    </div>
+                    <div class="card-footer-a">
+                      <ul class="card-info d-flex justify-content-around">
+                        <li>
+                          <h4 class="card-info-title">Duration</h4>
+                          <span>{{ cor.duration }}</span>
+                        </li>
+                        <li>
+                          <h4 class="card-info-title">Price</h4>
+                          <span>{{ cor.price }}</span>
+                        </li>
+                        <li>
+                          <h4 class="card-info-title">Address</h4>
+                          <span>{{ cor.address }}</span>
+                        </li>
+                        <li>
+                          <h4 class="card-info-title">Teacher</h4>
+                          <span>{{ cor.teacher.name }}</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section><!-- End Agent Single -->
+
+  </main><!-- End #main -->
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="login-form-container" style="padding-top: 100px; text-align: center;">
+    <h3 class="login-form-title header-head" style="margin-top: 40px;">REGISTER FORM</h3>
+    <form class="login-form" action="/register/" method="POST" >
+        <br><br>
+        {% csrf_token %}
+        <input class="form-input" type="text" name="phone" placeholder="Phone number or email" >
+        <br><br>
+        <button class="btn btn-outline-success" style="    margin-bottom: 20px;">REGISTER</button>
+        <br>
+    </form>
+</div>
+{% endblock %}

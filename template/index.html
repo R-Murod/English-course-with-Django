@@ -1,0 +1,404 @@
+{% extends 'base.html' %}
+{##}
+{#{% if active_user %}#}
+{#ID->{{ active_user.id }}.<br>#}
+{#Last Name->{{ active_user.last_name }}.<br>#}
+{#First Name->{{ active_user.first_name }}.<br>#}
+{#Middle Name->{{ active_user.middle_name }}.<br>#}
+{#Phone->{{ active_user.phone }}.<br>#}
+{#IIN->{{ active_user.iin }}.<br>#}
+{#Email->{{ active_user.email }}.<br>#}
+{##}
+{#    <a href="/edit">Edit</a><br><br>#}
+{#    <a href="/logout">logout</a><br><br>#}
+{##}
+{#{% else %}#}
+{#    <h2>#}
+{#    Hech narsa topilmadi#}
+{#    </h2>#}
+{#    <a href="/login">LOGIN</a>#}
+{##}
+{#{% endif %}#}
+{##}
+
+{% block content %}
+
+<!-- ======= Intro Section ======= -->
+<div class="intro intro-carousel swiper position-relative">
+
+    <div class="swiper-wrapper">
+        {% for sli in slider %}
+        <div class="swiper-slide carousel-item-a intro-item bg-image"
+             style="background-image: url(/media/{{ sli.logo }}/)">
+            <div class="overlay overlay-a"></div>
+            <div class="intro-content display-table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="intro-body">
+                                    <p class="intro-title-top"> {{ sli.posted_date }}
+                                    </p>
+                                    <h1 class="intro-title mb-4 ">
+                                        <span class="color-b">{{ sli.name }}</span> Course
+                                    </h1>
+                                    <p class="intro-subtitle intro-price">
+                                        <a href="/course/"><span class="price-a">Look for format course</span></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+</div><!-- End Intro Section -->
+
+<main id="main">
+
+    <!-- ======= Services Section ======= -->
+    <section class="section-services section-t8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a">Our Services</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card-box-c foo">
+                        <div class="card-header-c d-flex">
+                            <div class="card-box-ico">
+                                <span class="bi bi-cart"></span>
+                            </div>
+                            <div class="card-title-c align-self-center">
+                                <h2 class="title-c">Lifestyle</h2>
+                            </div>
+                        </div>
+                        <div class="card-body-c">
+                            <p class="content-c">
+                                Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien
+                                massa,
+                                convallis a pellentesque
+                                nec, egestas non nisi.
+                            </p>
+                        </div>
+                        <div class="card-footer-c">
+                            <a href="#" class="link-c link-icon">Read more
+                                <span class="bi bi-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-box-c foo">
+                        <div class="card-header-c d-flex">
+                            <div class="card-box-ico">
+                                <span class="bi bi-calendar4-week"></span>
+                            </div>
+                            <div class="card-title-c align-self-center">
+                                <h2 class="title-c">Loans</h2>
+                            </div>
+                        </div>
+                        <div class="card-body-c">
+                            <p class="content-c">
+                                Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.
+                                Mauris blandit
+                                aliquet elit, eget tincidunt
+                                nibh pulvinar a.
+                            </p>
+                        </div>
+                        <div class="card-footer-c">
+                            <a href="#" class="link-c link-icon">Read more
+                                <span class="bi bi-calendar4-week"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-box-c foo">
+                        <div class="card-header-c d-flex">
+                            <div class="card-box-ico">
+                                <span class="bi bi-card-checklist"></span>
+                            </div>
+                            <div class="card-title-c align-self-center">
+                                <h2 class="title-c">Sell</h2>
+                            </div>
+                        </div>
+                        <div class="card-body-c">
+                            <p class="content-c">
+                                Sed porttitor lectus nibh. Cras ultricies ligula sed magna dictum porta. Praesent sapien
+                                massa,
+                                convallis a pellentesque
+                                nec, egestas non nisi.
+                            </p>
+                        </div>
+                        <div class="card-footer-c">
+                            <a href="#" class="link-c link-icon">Read more
+                                <span class="bi bi-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Latest Properties Section ======= -->
+    <section class="section-property section-t8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a">All course</h2>
+                        </div>
+                        <div class="title-link">
+                            <a href="/course/">Look for sort
+                                <span class="bi bi-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="property-carousel" class="swiper">
+                <div class="swiper-wrapper">
+                    {% for cour in course %}
+                    <div class="carousel-item-b swiper-slide">
+                        <div class="card-box-a card-shadow">
+                            <div class="img-box-a">
+                                <img src="/media/{{ cour.logo1 }}/" alt="" class="img-a img-fluid">
+                            </div>
+                            <div class="card-overlay">
+                                <div class="card-overlay-a-content">
+                                    <div class="card-header-a">
+                                        <h2 class="card-title-a">
+                                            <a href="/course/{{ cour.id }}/">{{ cour.name }}</a>
+                                        </h2>
+                                    </div>
+                                    <div class="card-body-a">
+                                        <div class="price-box d-flex">
+                                            <span class="price-a">{{ cour.type_course.name }}</span>
+                                        </div>
+                                        <a href="/course/{{ cour.id }}/" class="link-a">Click here to view
+                                            <span class="bi bi-chevron-right"></span>
+                                        </a>
+                                    </div>
+                                    <div class="card-footer-a">
+                                        <ul class="card-info d-flex justify-content-around">
+                                            <li>
+                                                <h4 class="card-info-title">Duration</h4>
+                                                <span>{{ cour.duration }}</span>
+                                            </li>
+                                            <li>
+                                                <h4 class="card-info-title">Price</h4>
+                                                <span>{{ cour.price }}</span>
+                                            </li>
+                                            <li>
+                                                <h4 class="card-info-title">Experience</h4>
+                                                <span>{{ cour.teacher.experience }}</span>
+                                            </li>
+                                            <li>
+                                                <h4 class="card-info-title">Teacher</h4>
+                                                <span>{{ cour.teacher.name }}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End carousel item -->
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="propery-carousel-pagination carousel-pagination"></div>
+
+        </div>
+    </section><!-- End Latest Properties Section -->
+
+    <!-- ======= Agents Section ======= -->
+    <section class="section-agents section-t8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a">Best Teachers</h2>
+                        </div>
+                        <div class="title-link">
+                            <a href="/teachers/">All Teachers
+                                <span class="bi bi-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for teach in best_teachers %}
+                <div class="col-md-4">
+                    <div class="card-box-d">
+                        <div class="card-img-d">
+                            <img src="/media/{{ teach.logo }}/" alt="" class="img-d img-fluid">
+                        </div>
+                        <div class="card-overlay card-overlay-hover">
+                            <div class="card-header-d">
+                                <div class="card-title-d align-self-center">
+                                    <h3 class="title-d">
+                                        <a href="/teacher/{{ teach.id }}/" class="link-two">{{ teach.name }}</a>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="card-body-d">
+                                <p class="content-d color-text-a">
+                                    {{ teach.desc }}
+                                </p>
+                                <div class="info-agents color-a">
+                                    <p>
+                                        <strong>Phone: </strong> {{ teach.phone }}
+                                    </p>
+                                    <p>
+                                        <strong>Email: </strong> {{ teach.email }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card-footer-d">
+                                <div class="socials-footer d-flex justify-content-center">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="http://www.facebook.com/{{ teach.facebook }}/" class="link-one">
+                                                <i class="bi bi-facebook" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="https://twitter.com/{{ teach.twitter }}" class="link-one">
+                                                <i class="bi bi-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="https://www.instagram.com/{{ teach.instagram }}/" class="link-one">
+                                                <i class="bi bi-instagram" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="https://www.linkedin.com/in/{{ teach.linkedin }}/"
+                                               class="link-one">
+                                                <i class="bi bi-linkedin" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section><!-- End Agents Section -->
+
+    <!-- ======= Latest News Section ======= -->
+    <section class="section-news section-t8">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a">Latest News</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="news-carousel" class="swiper">
+                <div class="swiper-wrapper">
+                    {% for news in news %}
+                    <div class="carousel-item-c swiper-slide">
+                        <div class="card-box-b card-shadow news-box">
+                            <div class="img-box-b">
+                                <img src="/media/{{ news.logo }}/" alt="" class="img-b img-fluid">
+                            </div>
+                            <div class="card-overlay">
+                                <div class="card-header-b">
+                                    <div class="card-category-b">
+                                        <a href="#" class="category-b">{{ news.city }}</a>
+                                    </div>
+                                    <div class="card-title-b">
+                                        <h2 class="title-2">
+                                            <a href="#">{{ news.name }}</a>
+                                        </h2>
+                                    </div>
+                                    <div class="card-date">
+                                        <span class="date-b">{{ news.posted_at }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End carousel item -->
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="news-carousel-pagination carousel-pagination"></div>
+        </div>
+    </section><!-- End Latest News Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section class="section-testimonials section-t8 nav-arrow-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title-wrap d-flex justify-content-between">
+                        <div class="title-box">
+                            <h2 class="title-a">Testimonials</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="testimonial-carousel" class="swiper">
+                <div class="swiper-wrapper">
+                    {% for test in testimonials %}
+                    <div class="carousel-item-a swiper-slide">
+                        <div class="testimonials-box">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="testimonial-img">
+                                        <img src="/media/{{ test.logo }}/" alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="testimonial-ico">
+                                        <i class="bi bi-chat-quote-fill"></i>
+                                    </div>
+                                    <div class="testimonials-content">
+                                        <p class="testimonial-text">{{ test.desc }}</p>
+                                    </div>
+                                    <div class="testimonial-author-box">
+                                        <img src="/media/{{ test.logo }}/" alt="" class="testimonial-avatar">
+                                        <h5 class="testimonial-author">{{ test.name }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End carousel item -->
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="testimonial-carousel-pagination carousel-pagination"></div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+
+</main><!-- End #main -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('.js-home-active').addClass('active');
+</script>
+{% endblock %}

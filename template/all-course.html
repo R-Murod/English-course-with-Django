@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% block content %}
+<main id="main">
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8">
+                    <div class="title-single-box">
+                        <h1 class="title-single">All our course</h1>
+                        <!--              <span class="color-text-a">Grid Properties</span>-->
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4">
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                All course
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Intro Single-->
+
+    <!-- ======= Property Grid ======= -->
+    <section class="property-grid grid">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="grid-option">
+                        <form>
+                            <select name="sort" class="custom-select js-changes">
+                                <option value="all" {% if sort == 'all' %} selected {% endif %}>All</option>
+                                <option value="offline" {% if sort == 'offline' %} selected {% endif %}>Offline</option>
+                                <option value="online" {% if sort == 'online' %} selected {% endif %}>Online</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                {% for c in courses %}
+                <div class="col-md-4">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                            <img src="/media/{{ c.logo1 }}/" alt="" class="img-a img-fluid">
+                        </div>
+                        <div class="card-overlay">
+                            <div class="card-overlay-a-content">
+                                <div class="card-header-a">
+                                    <h2 class="card-title-a">
+                                        <a href="/course/{{ c.id }}/">{{ c.name }}</a>
+                                    </h2>
+                                </div>
+                                <div class="card-body-a">
+                                    <div class="price-box d-flex">
+                                        <span class="price-a">{{ c.type_course.name }}</span>
+                                    </div>
+                                    <a href="/course/{{ c.id }}/" class="link-a">Click here to view
+                                        <span class="bi bi-chevron-right"></span>
+                                    </a>
+                                </div>
+                                {% if active_user %}
+                                <form action="/contact/" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="action" value="add_to_wish_list">
+                                    <input type="hidden" name="course_id" value="{{ c.id }}">
+                                    <input type="hidden" name="return_url" value="/course/">
+                                    <div class="card-header-a">
+                                        <button title="Добавить в избранные" >Add to Wish</i></button>
+                                    </div>
+                                </form>
+                                {% endif %}
+                                <div class="card-footer-a">
+                                    <ul class="card-info d-flex justify-content-around">
+                                        <li>
+                                            <h4 class="card-info-title">Duration</h4>
+                                            <span>{{ c.duration }}</span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Price</h4>
+                                            <span>{{ c.price }}</span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Experience</h4>
+                                            <span>{{ c.teacher.experience }}</span>
+                                        </li>
+                                        <li>
+                                            <h4 class="card-info-title">Teacher</h4>
+                                            <span>{{ c.teacher.name }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <nav class="pagination-a">
+                        <ul class="pagination justify-content-end">
+                            <li class="page-item">
+                                <a class="page-link" href="/course/?page={{ prev_page }}&sort={{ sort }}">
+                                    {% if current_page != 1 %}
+                                    <span class="bi bi-chevron-left"></span>
+                                    {% endif %}
+                                </a>
+                            </li>
+                            {% for p in pages %}
+                            <li class="page-item {% if current_page == p %} active {% endif %}">
+                                <a class="page-link" href="/course/?page={{ p }}&sort={{ sort }}">{{ p }}</a>
+                            </li>
+                            {% endfor %}
+                            {% if next_page %}
+                            <li class="page-item next">
+                                <a class="page-link" href="/course/?page={{ next_page }}&sort={{ sort }}">
+                                    <span class="bi bi-chevron-right"></span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Property Grid Single-->
+</main>
+<script src="/static/vendor/jquery-3.6.3.min.js"></script>
+<script>
+  $('.js-changes').change(function(){
+    $(this).parents('form').submit();
+  })
+  $('.js-courses-active').addClass('active');
+
+</script>
+{% endblock %}
+
