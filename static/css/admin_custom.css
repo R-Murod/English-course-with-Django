@@ -1,0 +1,52 @@
+/* Change the background color of the admin header */
+.header {
+    background-color: #3498db;
+}
+
+/* Change the color of the admin header text */
+.header h1 {
+    color: #ffffff;
+}
+/* Change the font family and size for the entire admin panel */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+/* Customize the font style for specific elements */
+.module caption {
+    font-weight: bold;
+}
+/* Change the background color and text color of buttons */
+.submit-row input[type="submit"] {
+    background-color: #27ae60;
+    color: #ffffff;
+}
+
+/* Style links */
+a {
+    text-decoration: none;
+    color: #3498db;
+}
+/* Style table headers */
+.results thead th {
+    background-color: #f2f2f2;
+}
+
+/* Style form inputs and labels */
+.form-row input[type="text"],
+.form-row select {
+    border: 1px solid #ddd;
+}
+
+.form-row label {
+    font-weight: bold;
+}
+/* Replace the Django admin site logo */
+.header .branding img {
+    content: url('/static/img/custom-logo.png');
+}
+/* Style a specific app's title */
+#yourapp .module h2 {
+    color: #e74c3c;
+}
