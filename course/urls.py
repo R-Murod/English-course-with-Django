@@ -35,7 +35,7 @@ urlpatterns = [
     path('wish/', wishHandler),
     path('teacher/<int:teacher_id>/', teacherItemHandler),
     path('course/<int:course_id>/', courseItemHandler),
-    path('admin/', admin.site.urls),
+    path('hello/', admin.site.urls),
     url(r'^media/(?P<path>.*)$', serve, {
         'document_root': settings.MEDIA_ROOT
     })
